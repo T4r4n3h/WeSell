@@ -1,19 +1,16 @@
 <%- include('../partials/header')%>
 
 
-<%console.log('this is cart Content', cartContent) %>
-This is the cart show
 <% for (let item of cartContent){%>
-    <div class="card w-50">
+    <div class="card w-70">
         <div class="card-body">
-          <img src="<%=item.image%> width =50%" alt="">
+          <img src="<%=item.image%>" width = 30% alt="">
           <h5 class="card-title"><%=item.name%></h5>
-          <%=item.name%> 
-          <%=item.price%> 
+         
+          <h5>$<%=item.price%> </h5>
           <%=item.desc%> 
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolore enim dignissimos. Similique, vitae aspernatur.</p>
          
 
 

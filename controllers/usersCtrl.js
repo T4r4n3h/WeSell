@@ -10,17 +10,19 @@ module.exports = {
     delCart,
 
 }
-function delCart(req,res,next){
+
+ function delCart(req,res,next){
    console.log ('req.user',req.user)
    let cart= req.user.cart
-cart.findIndex(function (item){
+   let idx = cart.findIndex(function (item){
+       console.log('this is item:'. item)
     item.equals(req.params.id)
-})
-       
+    })
+    console.log('this is the index',idx)
+       //i wasnt to write a splice method and save but the index # logging is always a -1
     
+ }
 
-   }
-}
 
  async function showCart(req,res){
     if (!req.user) {

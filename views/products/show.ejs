@@ -1,51 +1,50 @@
 <%- include('../partials/header') %> 
-    <img src="<%= myProduct.image %> " alt="">
-    <%= myProduct.name %> 
-    <h6><%= myProduct.desc %> </h6>
-    <h6>$ <%= myProduct.price %> </h6>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem asperiores vel quos natus recusandae accusamus ut, aperiam repudiandae, debitis labore vitae, distinctio soluta impedit suscipit quo ratione magni provident! Laboriosam ab rem nihil consequuntur, autem officiis culpa dignissimos atque!</p>
+    
 
-    <div class="card">
-      <h5 class="card-header">Reviews</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+
+
+    <div class="card bg-transparent">
+      <img src="<%= myProduct.image %> " alt="">
+      <a  class="btn btn-outline-dark" href="/users/cart/<%= myProduct._id%>">Add to Cart</a>
+      <h5><%= myProduct.name %></h5>
+      <h6><%= myProduct.desc %> </h6>
+      <h6>$ <%= myProduct.price %> </h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem asperiores vel quos natus recusandae accusamus ut, aperiam repudiandae, debitis labore vitae, distinctio soluta impedit suscipit quo ratione magni provident! Laboriosam ab rem nihil consequuntur, autem officiis culpa dignissimos atque!</p>
     </div>
 
-    
-    
-    <form id="add-review-form" method="POST" action="/products/<%= myProduct._id%>/reviews">
-      <label>Review:</label>
-      <textarea name="content"></textarea>
-      <label>Rating:</label>
-      <select name="rating">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <input type="submit" value="Add Review">
-    </form>
-
-    <a href="/users/cart/<%= myProduct._id%>">Add to Cart Button!</a>
-    <% if (myProduct.reviews.length) { %>
+    <div class="card bg-transparent">
+      <h5 class="card-header">Reviews</h5>
+      <div class="card-body">
+        <!-- <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <form id="add-review-form" method="POST" action="/products/<%= myProduct._id%>/reviews">
+          <label>Write a Review:</label>
+          <textarea name="content" class="form-control"></textarea>
+          <label>Rating:</label>
+          <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <input  class="btn btn-outline-secondary" type="submit" value="Post Review">
+        </form>
+      </div>
+      
+      <% if (myProduct.reviews.length) { %>
         <table>
           <thead>
             <tr>
-              
-              <th>Review</th>
+              <th>Review:</th>
               <th>Rating</th>
             </tr>
           </thead>
           <tbody>
             <% let total = 0 %>
             <% myProduct.reviews.forEach(function(r) { %>
-              <% total += r.rating %>
+            <% total += r.rating %>
               <tr>
-                
                 <td><%= r.content %></td>
                 <td><%= r.rating %></td>
               </tr>
@@ -59,6 +58,19 @@
       <% } else { %>
         <h5>No Reviews Yet</h5>
       <% } %>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+  
       
       
   
