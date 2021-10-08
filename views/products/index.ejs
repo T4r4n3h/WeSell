@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+<%- include('../partials/header.ejs') %> 
+
+
+
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <% for (let item of allProducts){%>
+        <div class="col">
+            <div class="card border-0 bg-transparent">
+              <img src="<%= item.image %>" class="rounded float-start" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= item.name %></h5>
+                <h5 class="card-title">$<%= item.price%></h5>
+
+                
+                <p class="card-text">Let me tell you about this product!</p>
+              </div>
+              <a href="/products/<%=item._id %>">View Product</a>
+            </div>
+           
+          </div>
+         
+    <%}%> 
+   
+    
+   
+  </div>
+  <%- include('../partials/footer.ejs') %>   

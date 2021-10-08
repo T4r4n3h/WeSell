@@ -1,0 +1,33 @@
+<%- include('../partials/header')%>
+
+
+<%console.log('this is cart Content', cartContent) %>
+This is the cart show
+<% for (let item of cartContent){%>
+    <div class="card w-50">
+        <div class="card-body">
+          <img src="<%=item.image%> width =50%" alt="">
+          <h5 class="card-title"><%=item.name%></h5>
+          <%=item.name%> 
+          <%=item.price%> 
+          <%=item.desc%> 
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+         
+
+
+          <form action="/users/cart/<%= item._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-outline-info">Remove</button>
+          </form>
+         
+        </div>
+      </div>
+      <%console.log('this is item.name', item.name) %>
+<% } %> 
+
+
+
+<%- include('../partials/footer')%>             
+
+
