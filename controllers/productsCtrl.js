@@ -12,6 +12,9 @@ module.exports = {
     
 }
 async function addReview(req,res){
+    if (!req.user) {
+        return res.redirect('/auth/google')
+     }
     try{
         console.log(`Tara logging req.params.id: ${req.params.id}
         aslo below is console.dir of req.body`)
@@ -40,6 +43,9 @@ async function index(req, res){
     res.render('products/index.ejs',{allProducts: allProducts})
 }
 async function show(req,res){
+    if (!req.user) {
+        return res.redirect('/auth/google')
+     }
     console.log('This is the re.params.id:',req.params.id)
     let myProduct = await Product.findById(req.params.id);
     console.log(`this is myProduct: ${myProduct}`)
@@ -55,6 +61,9 @@ function addProduct(req, res){
 }
 
 async function create(req, res){
+    if (!req.user) {
+        return res.redirect('/auth/google')
+     }
     const newProduct = new Product(req.body);
     console.log('this is the NEW PRODUCT logged:',newProduct);
     console.log('This is REQ.BODY', req.body)

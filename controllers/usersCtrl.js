@@ -47,6 +47,9 @@ module.exports = {
 
 }
 async function addToCart(req,res){
+    if (!req.user) {
+        return res.redirect('/auth/google')
+     }
     try{
         console.log('this is req.user',req.user)
         console.log('Req.Params.id : ', req.params.id)
