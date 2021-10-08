@@ -1,5 +1,5 @@
 # WeSell
-WeSell is a mockup of an e-commerce website/CRUD appliction where the products can be added to cart.
+WeSell is a mockup e-commerce website/CRUD appliction where the products can be added to cart.
 ## Technologies U
 This was made using Node.Js, EJS, Bootstrap and MongoDb.
 here is what the hoem page looks like:
